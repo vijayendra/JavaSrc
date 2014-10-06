@@ -22,6 +22,15 @@ class ListNode{
         ln.next = next;
         next = ln; 
     }
+    public ListNode nth(int position){
+        if (position == 1)
+            return this;
+        else if (position < 1 || this.next == null){
+            return null;
+        } else {
+            return next.nth(position - 1);
+        }
+    }
     public void display(){
         ListNode ln = this;
         while (true){
@@ -45,5 +54,7 @@ class ListNode{
         l1.display();
         l2.insertNext(new ListNode(22));
         l1.display();
+        l1.nth(2).display();
+        l1.nth(3).display();
     }
 }
