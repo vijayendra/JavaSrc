@@ -32,7 +32,7 @@ class DList{
     public int getSize(){
         return size;
     }
-    public void insertFront(int item){
+    public void push(int item){
         DListNode n = new DListNode(item);
         if (size == 0){
             head.prev = n;
@@ -46,6 +46,18 @@ class DList{
             head.prev = n;
         }
         size++;
+    }
+    public DListNode pop() throws RuntimeException{
+        DListNode n;
+        if (size == 0){
+            throw new RuntimeException("Node list size is 0");
+        } else {
+            n = head.prev;
+            head.prev = n.prev;
+            n.prev.next = head;
+            size--;
+            return n;
+        }
     }
     public void display(){
         if (size > 0){
@@ -66,11 +78,15 @@ class DList{
         // starting point
         DList dl = new DList();
         dl.display();
-        dl.insertFront(2);
+        dl.push(2);
         dl.display();
-        dl.insertFront(5);
+        dl.push(5);
         dl.display();
-        dl.insertFront(10);
+        dl.push(10);
+        dl.display();
+        dl.pop();
+        dl.display();
+        dl.pop();
         dl.display();
     }
 }
