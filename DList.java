@@ -74,8 +74,24 @@ class DList{
         }
         System.out.println();
     }
-    public static void main(String[] args){
-        // starting point
+    public boolean equals(DList other){
+        DListNode i, j;
+        if (size != other.size){
+            return false;
+        }
+        if (head.item != other.head.item){
+            return false;
+        }
+        i = head.next;
+        j = other.head.next;
+        while (head != head.next){
+            if (i.item != j.item){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void testDriver(){
         DList dl = new DList();
         dl.display();
         dl.push(2);
@@ -84,9 +100,23 @@ class DList{
         dl.display();
         dl.push(10);
         dl.display();
+        DList other = new DList();
+        other.push(2);
+        assert !dl.equals(other);
+        other.push(5);
+        assert !dl.equals(other);
+        other.push(10);
+        assert dl.equals(other);
         dl.pop();
         dl.display();
         dl.pop();
         dl.display();
+    }
+}
+
+class TestDList{
+    public static void main(String[] args){
+        System.out.println("Testing");
+        DList.testDriver();
     }
 }
