@@ -1,13 +1,40 @@
-// This is a circular DList with following invariants:
+/* 
+   This is a circular DList with following invariants:
 
-// 1. DList head cannot be null
-// 2. Sentinel item value will be null
-// 3. Sentinel next and prev will point to itself if DList size is 0
-// 4. Evey DListNode will have next and prev which are non null
-// 5. If x.next = y then y.prev = x
-// 6. If x.prev = y then y.next = x
+   1. DList head cannot be null
+   2. Sentinel item value will be null
+   3. Sentinel next and prev will point to itself if DList size is 0
+   4. Evey DListNode will have next and prev which are non null
+   5. If x.next = y then y.prev = x
+   6. If x.prev = y then y.next = x
+   
+*/
 
-class DListNode{
+/*
+
+  Abstract class can only be enherited and cannot be instanciated.
+  Abstract class start with keyword abstract
+  Subclass which extra abstract class MUST define all abstract methods
+  defined in abstract class.
+  
+ */
+abstract class List{
+    protected int size;
+    abstract public int getSize();
+    abstract public void push(int item);
+    abstract public void display();
+    abstract public DListNode pop();
+}
+
+abstract class Node{
+    protected int item;
+    Node next;
+    Node prev;
+}
+
+// Actual Class definition
+
+class DListNode extends Node{
     int item;
     DListNode next;
     DListNode prev;
@@ -20,7 +47,7 @@ class DListNode{
     }
 }
 
-class DList{
+class DList extends List{
     private DListNode head;
     private int size;
 
@@ -92,6 +119,8 @@ class DList{
         return true;
     }
     public static void testDriver(){
+        // testDriver must be present in actual class so that it can call
+        // private methods if any.
         DList dl = new DList();
         dl.display();
         dl.push(2);
@@ -116,6 +145,15 @@ class DList{
         System.out.println("Main method");
     }
 }
+
+/*
+
+  You should class TestDList if you want to test the DList functionality
+  e.g
+  cd /home/egnyte/src
+  java -classpath /home/egnyte/src TestDList
+
+*/
 
 class TestDList{
     public static void main(String[] args){
