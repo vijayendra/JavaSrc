@@ -1,0 +1,31 @@
+
+DList.java,466
+class DList 5,40
+    private DListNode head;DList.head6,66
+    private int size;DList.size7,94
+    public DList(DList.DList9,117
+    public int getSize(DList.getSize14,194
+    public void push(DList.push17,247
+    public DListNode pop(DList.pop32,621
+    public void display(DList.display44,947
+    public boolean equals(DList.equals59,1403
+    public static void testDriver(DList.testDriver76,1818
+    public static void main(DList.main99,2437
+
+List.java,70
+abstract class List{List5,45
+    protected int size;List.size6,66
+
+DListNode.java,234
+class DListNode 5,36
+    int item;DListNode.item6,66
+    DListNode next;DListNode.next7,80
+    DListNode prev;DListNode.prev8,100
+    public DListNode(DListNode.DListNode9,120
+    public DListNode(DListNode.DListNode12,184
+
+Node.java,130
+abstract class Node{Node3,16
+    protected int item;Node.item4,37
+    Node next;Node.next5,61
+    Node prev;Node.prev6,76

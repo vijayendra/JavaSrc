@@ -14,7 +14,7 @@ class DList extends List{
     public int getSize(){
         return size;
     }
-    public void push(int item){
+    public void insertFront(int item){
         DListNode n = new DListNode(item);
         if (size == 0){
             head.prev = n;
@@ -29,7 +29,7 @@ class DList extends List{
         }
         size++;
     }
-    public DListNode pop() throws RuntimeException{
+    public DListNode remove() throws RuntimeException{
         DListNode n;
         if (size == 0){
             throw new RuntimeException("Node list size is 0");
@@ -78,22 +78,22 @@ class DList extends List{
         // private methods if any.
         DList dl = new DList();
         dl.display();
-        dl.push(2);
+        dl.insertFront(2);
         dl.display();
-        dl.push(5);
+        dl.insertFront(5);
         dl.display();
-        dl.push(10);
+        dl.insertFront(10);
         dl.display();
         DList other = new DList();
-        other.push(2);
+        other.insertFront(2);
         assert !dl.equals(other);
-        other.push(5);
+        other.insertFront(5);
         assert !dl.equals(other);
-        other.push(10);
+        other.insertFront(10);
         assert dl.equals(other);
-        dl.pop();
+        dl.remove();
         dl.display();
-        dl.pop();
+        dl.remove();
         dl.display();
     }
     public static void main(String[] args){
