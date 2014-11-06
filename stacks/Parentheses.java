@@ -20,26 +20,28 @@ public class Parentheses{
                 if(c == L_PAREN || c == L_BRACE || c == L_BRACKET){
                     s.push(new Node(c));
                 } else if(c == R_PAREN || c == R_BRACE || c == R_BRACKET){
-                    n = s.pop();
-                    if (n == null){
-                        // reached end of stack
+                    if (s.isEmpty()){
                         return false;
+                    } else {
+                        n = s.pop();
+                        if (n == null){
+                            // reached end of stack
+                            return false;
+                        }
+                        if(c == R_PAREN && n.item != (Object)L_PAREN){
+                            return false;
+                        }
+                        if(c == R_BRACE && n.item != (Object)L_BRACE){
+                            return false;
+                        }
+                        if(c == R_BRACKET && n.item != (Object)L_BRACKET){
+                            return false;
+                        }
                     }
-                    if(c == R_PAREN && n.item != (Object)L_PAREN){
-                        return false;
-                    }
-                    if(c == R_BRACE && n.item != (Object)L_BRACE){
-                        return false;
-                    }
-                    if(c == R_BRACKET && n.item != (Object)L_BRACKET){
-                        return false;
-                    }
-                } else {
-                    // invalid char
                 }
             }
         }
-        if(s.getSize() != 0){
+        if(!s.isEmpty()){
             return false;
         }
         return true;
