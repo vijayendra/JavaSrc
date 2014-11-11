@@ -27,6 +27,17 @@ public class SList extends List{
         }
         size++;
     }
+    public Object[] getItems(){
+        Object[] result = new Object[size];
+        if (size != 0){
+            SListNode n = head;
+            for(int i=0; i<size; i++){
+                result[i] = n.item;
+                n = n.next;
+            }
+        }
+        return result;
+    }
     public void display(){
         if(size != 0){
             SListNode n = head;
@@ -48,5 +59,9 @@ public class SList extends List{
         slist.append(20);
         slist.append(30);
         slist.display();
+
+        for(Object item: slist.getItems()){
+            System.out.println(item.toString());
+        }
     }
 }
