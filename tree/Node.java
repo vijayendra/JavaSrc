@@ -28,7 +28,7 @@ class Node{
         return n;
     }
     public void display(){
-        System.out.println(item.toString());
+        System.out.print(item.toString() + " ");
     }
     public void preorder(){
         display();
@@ -38,6 +38,17 @@ class Node{
             for(Object n: sibling.getItems()){
                 Node n1 = (Node) n;
                 n1.preorder();
+            }
+        }
+    }
+    public void postorder(){
+        if (child != null)
+            child.postorder();
+        display();
+        if (sibling != null){
+            for(Object n: sibling.getItems()){
+                Node n1 = (Node) n;
+                n1.postorder();
             }
         }
     }

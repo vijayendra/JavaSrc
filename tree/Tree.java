@@ -18,5 +18,8 @@ class Tree{
         Node b3 = b.addChild("b3");
         Node b4 = b.addChild("b4");
         t.root.preorder();
+        System.out.println();
+        t.root.postorder();
+        System.out.println();
     }
 }
