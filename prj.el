@@ -1,9 +1,7 @@
 (custom-set-variables
- '(jde-compile-option-command-line-args nil)
- '(jde-compile-option-debug (quote ("all" (t t t))))
+ '(jde-sourcepath (quote ("/home/egnyte/src")))
  '(jde-build-classpath (quote ("/home/egnyte/src/target/classes")))
  '(jde-global-classpath (quote ("/home/egnyte/src/target/classes")))
- '(jde-sourcepath (quote ("/home/egnyte/src")))
  )
 (jde-project-file-version "1.0")
 (jde-set-variables
@@ -26,7 +24,10 @@
  '(jde-compiler (quote ("javac-server" "")))
  '(jde-compile-option-command-line-args nil)
  '(jde-read-compile-args nil)
- ;; '(jde-compile-option-directory "./target/classes")
+ '(jde-compile-option-directory "/home/egnyte/src/target/classes")
+ '(jde-compile-option-command-line-args nil)
+ '(jde-compile-option-sourcepath (quote ("/home/egnyte/src")))
+ '(jde-compile-option-debug (quote ("all" (t t t))))
  '(jde-compile-option-deprecation t)
  '(jde-compile-option-debug (quote ("all" (t t t))))
  '(jde-compile-option-optimize nil)
@@ -127,11 +128,13 @@
                        temp-file
                        (file-name-directory buffer-file-name))))
     ;; Change your ecj.jar location here
+
     (list "java" (list "-jar" "/home/egnyte/Development/ecj.jar" "-Xemacs" "-d" "/tmp"
                        "-source" "1.6" "-target" "1.6" 
                        "-proceedOnError"
-                       "-classpath"
-                       (jde-build-classpath jde-global-classpath) local-file))))
+                       "-classpath" (jde-build-classpath jde-global-classpath)
+                       "-sourcepath" (jde-build-classpath jde-sourcepath)
+                       local-file))))
  
 (defun flymake-java-ecj-cleanup ()
   "Cleanup after `flymake-java-ecj-init' -- delete temp file and dirs."
