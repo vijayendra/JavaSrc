@@ -1,3 +1,7 @@
+(custom-set-variables
+ '(jde-global-classpath (quote ("/home/egnyte/src/target/classes")))
+ '(jde-sourcepath (quote ("/home/egnyte/src")))
+ )
 (jde-project-file-version "1.0")
 (jde-set-variables
  ;'(jde-jdk-registry (quote (("1.6" . "$JAVA_HOME"))))
@@ -19,7 +23,7 @@
  '(jde-compiler (quote ("javac-server" "")))
  '(jde-compile-option-command-line-args nil)
  '(jde-read-compile-args nil)
- ;;'(jde-compile-option-directory "./target/classes")
+ ;; '(jde-compile-option-directory "./target/classes")
  '(jde-compile-option-deprecation t)
  '(jde-compile-option-debug (quote ("all" (t t t))))
  '(jde-compile-option-optimize nil)
@@ -89,9 +93,9 @@
 
 ;; JDE Cross-Reference Database
 
-;; '(jde-sourcepath (quote ("./src/main/java" "./src/test/java")))
-;; '(jde-global-classpath (quote ("./src/main/resources" "./target/classes" "/usr/share/java")))
-;; '(jde-built-class-path (quote ("./target/classes" "./target/test/classes")))
+;; '(jde-sourcepath (quote ("/home/egnyte/src")))
+;; '(jde-global-classpath (quote ("./target/classes" )))
+;; '(jde-built-class-path (quote ("./target/classes" )))
 ;; '(jde-xref-db-base-directory "./xrefdb")
 ;; '(jde-xref-store-prefixes (quote ("com.example")))
 ;; '(jde-xref-cache-size 3))
