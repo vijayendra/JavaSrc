@@ -2,11 +2,11 @@ package slist;
 
 import slist.Node;
 
-class SListNode extends Node{
-    Object item;
-    SListNode next;
+class SListNode<E> extends Node<E>{
+    E item;
+    SListNode<E> next;
 
-    public SListNode(Object item){
+    public SListNode(E item){
         this.item = item;
     }
     public SListNode(){

@@ -1,6 +1,6 @@
 package slist;
 
-abstract class Node{
-    protected Object item;
-    Node next;
+abstract class Node<E>{
+    protected E item;
+    Node<E> next;
 }

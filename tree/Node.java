@@ -6,14 +6,14 @@ class Node{
     Object item;
     Node parent;
     Node child;
-    SList sibling;
+    SList<Node> sibling;
 
     public Node(Object item){
         this.item = item;
     }
     public void addSibling(Node n){
         if(sibling == null){
-            sibling = new SList();
+            sibling = new SList<Node>();
         }
         sibling.append(n);
     }
@@ -36,8 +36,8 @@ class Node{
             child.preorder();
         if (sibling != null){
             for(Object n: sibling.getItems()){
-                Node n1 = (Node) n;
-                n1.preorder();
+                //((Node)n).preorder();
+                ((Node)n).preorder();
             }
         }
     }
@@ -47,8 +47,7 @@ class Node{
         display();
         if (sibling != null){
             for(Object n: sibling.getItems()){
-                Node n1 = (Node) n;
-                n1.postorder();
+                ((Node)n).postorder();
             }
         }
     }
