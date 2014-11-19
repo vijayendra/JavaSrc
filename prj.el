@@ -71,6 +71,7 @@
  '(jde-run-option-verify (quote (nil t)))
  ;; '(jde-run-option-vm-args (quote ("-Xdebug" "-Xrunjdwp:transport=dt_socket,address=6001,server=y,suspend=n"
  ;;				  "-Xnoagent" "-Djava.compiler=NONE")))
+ '(jde-run-option-vm-args (quote ("-ea")))
  '(jde-run-option-application-args nil)
 
  ;; '(jde-run-option-debug (quote ("Server" "Socket" "javadebug" "localhost" "6001" "Yes")))

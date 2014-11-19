@@ -36,7 +36,6 @@ class Node{
             child.preorder();
         if (sibling != null){
             for(Object n: sibling.getItems()){
-                //((Node)n).preorder();
                 ((Node)n).preorder();
             }
         }
